@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Registration Form</h1>
+    <div class="card p-5">
+        <form class="form-control" #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)">
+            <div>
+                <label>Full Name</label>
+                <input ngModel type="text" name="name" id="name" required="required" class="form-control">
+            </div>
+            <div>
+                <label>Mobile number</label>
+                <input ngModel type="text" name="mobileNumber" id="mobileNumber" required="required"
+                    class="form-control">
+            </div>
+            <div>
+                <label>Email ID</label>
+                <input ngModel type="email" name="email" id="email" required="required" class="form-control">
+            </div>
+            <div>
+                <label>Password</label>
+                <input ngModel type="password" name="password" id="password" required="required" class="form-control">
+            </div>
+            <div>
+                <label>confirm Password</label>
+                <input ngModel type="password" name="rePassword" id="rePassword" required="required"
+                    class="form-control">
+            </div>
+            <div>
+                <button type="submit" class="mt-5">SignUp</button>
+            </div>
+            <div class="m-5">
+                <p>Already have account?</p>
+                <button type="button" routerLink="/login">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

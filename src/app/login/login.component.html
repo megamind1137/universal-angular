@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Login Form</h1>
+    <div class="card p-5">
+        <form class="form-control" #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+            <div>
+                <label>Mobile number</label>
+                <input ngModel type="text" name="username" id="username" required="required" class="form-control">
+            </div>
+            <div>
+
+                <label>Passworder</label>
+                <input ngModel type="password" name="password" id="password" required="required" class="form-control">
+            </div>
+            <div>
+                <button type="submit" class="mt-5">Login</button>
+
+                <a routerLink="/forgotPassword" class="m-3">
+                    Forgot password
+                </a>
+
+                <button type="button" routerLink="/register" class="m-5">Registration</button>
+            </div>
+        </form>
+    </div>
+</div>
