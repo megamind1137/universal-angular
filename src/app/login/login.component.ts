@@ -9,6 +9,7 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loading: boolean = true;
 
   constructor(private userService: UserService, private userAuthService: UserAuthService,
     private router: Router) { }
@@ -16,15 +17,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   login(loginForm: any) {
+    this.loading = false;
     this.userService.login(loginForm.value).subscribe(
       (response: any) => {
         console.log(response);
         if (response.status == 200) {
           this.userAuthService.setJwtToken(response.data.token);
           this.userAuthService.setRole(response.data.userResponseDto.role.name);
-          alert(response.message);
+          this.loading = true;
           this.router.navigate(["/home"]);
         } else (
           alert(response.message)
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        this.loading = true;
         let len = error.error.message.length;
         for (let index = 0; index < len; index++) {
           alert(error.error.message)

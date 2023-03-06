@@ -1,25 +1,30 @@
-<div class="container">
-    <h1>Login Form</h1>
-    <div class="card p-5">
-        <form class="form-control" #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+<div class="container mt-5" style="width: 300px;">
+    <div class="card-deck">
+        <form class="form-control" #loginForm="ngForm" (ngSubmit)="login(loginForm)"
+            style="background-color: rgb(153, 165, 165);">
             <div>
                 <label>Mobile number</label>
-                <input ngModel type="text" name="username" id="username" required="required" class="form-control">
+                <input ngModel type="text" name="username" id="username" required class="form-control">
             </div>
             <div>
-
                 <label>Passworder</label>
-                <input ngModel type="password" name="password" id="password" required="required" class="form-control">
+                <input ngModel type="password" name="password" id="password" required class="form-control">
             </div>
             <div>
-                <button type="submit" class="mt-5">Login</button>
+                <button type="submit" class="mt-5 bg-primary">Login</button>
 
                 <a routerLink="/forgotPassword" class="m-3">
                     Forgot password
                 </a>
 
-                <button type="button" routerLink="/register" class="m-5">Registration</button>
+                <button type="button" routerLink="/register" class="m-5 bg-primary">Registration</button>
             </div>
         </form>
     </div>
 </div>
+<div [ngClass]="[ loading ? 'd-none' : 'd-block']" id="loading" class="loading">Loading&#8230;</div>
+
+<!-- <div *ngIf="loading" class="" disabled>
+    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    Data Calling...
+</div> -->
